@@ -93,14 +93,12 @@ source ~/.config/nvim/configs/ale-config.vim
 source ~/.config/nvim/configs/omnisharp-config.vim
 source ~/.config/nvim/configs/golang-config.vim
 source ~/.config/nvim/configs/ultisnips-config.vim
-" source ~/.config/nvim/configs/lightline-config.vim
 source ~/.config/nvim/configs/deoplete-config.vim
 source ~/.config/nvim/configs/vimspector-config.vim
 
 lua <<EOF
 
 require("treesitter-config")
-
 require("rest-nvim").setup({})
 
 EOF

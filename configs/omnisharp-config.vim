@@ -16,11 +16,6 @@ let g:sharpenup_map_prefix = ','
 let g:sharpenup_statusline_opts = { 'Text': '%s (%p/%P)' }
 let g:sharpenup_statusline_opts.Highlight = 0
 
-augroup OmniSharpIntegrations
-	autocmd!
-"	autocmd User OmniSharpProjectUpdated,OmniSharpReady call lightline#update()
-augroup END
-
 augroup omnisharp_commands
 	autocmd!
 	" Show type information	automatically when the	cursor stops moving.

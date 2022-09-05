@@ -11,5 +11,5 @@ let g:go_fmt_autosave = 1
 
 augroup golang_commands
 	autocmd!
-	autocmd FileType go nmap <Silent> <buffer> rn <Plug>(GoRename)
+	autocmd FileType go nmap <buffer> <Leader>rn :GoRename<CR>
 augroup END
