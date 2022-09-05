@@ -44,6 +44,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'github/copilot.vim'
 
 " Debugger 
 Plug 'puremourning/vimspector'
@@ -58,7 +59,6 @@ Plug 'rest-nvim/rest.nvim'
 
 " Languages
 Plug 'OmniSharp/omnisharp-vim'
-" Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
 
 " Statusline
