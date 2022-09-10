@@ -31,7 +31,15 @@ Plug 'editorconfig/editorconfig-vim'
 
 " File System
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Telescope
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Code actions, highlight & find symbols
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -99,6 +107,8 @@ source ~/.config/nvim/configs/vimspector-config.vim
 lua <<EOF
 
 require("treesitter-config")
+require("telescope-config")
+require("devicons-config")
 require("rest-nvim").setup({})
 
 EOF
