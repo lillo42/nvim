@@ -41,6 +41,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'LinArcX/telescope-env.nvim'
 
 " Code actions, highlight & find symbols
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
