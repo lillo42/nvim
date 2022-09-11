@@ -39,6 +39,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Code actions, highlight & find symbols
@@ -54,8 +55,14 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'github/copilot.vim'
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+
 " Debugger 
 Plug 'puremourning/vimspector'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 " Database
 Plug 'tpope/vim-dadbod'
@@ -67,7 +74,8 @@ Plug 'rest-nvim/rest.nvim'
 
 " Languages
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
+Plug 'ray-x/go.nvim'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
@@ -108,8 +116,14 @@ lua <<EOF
 
 require("treesitter-config")
 require("telescope-config")
+require("dap-config")
 require("devicons-config")
+require("lsp-config")
+require("golang-config")
 require("rest-nvim").setup({})
 
 EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
