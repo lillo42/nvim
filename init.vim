@@ -50,8 +50,8 @@ Plug 'dense-analysis/ale'
 Plug 'nickspoons/vim-sharpenup'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'Shougo/deoplete.nvim'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'github/copilot.vim'
@@ -110,7 +110,6 @@ source ~/.config/nvim/configs/ale-config.vim
 source ~/.config/nvim/configs/omnisharp-config.vim
 source ~/.config/nvim/configs/golang-config.vim
 source ~/.config/nvim/configs/ultisnips-config.vim
-source ~/.config/nvim/configs/deoplete-config.vim
 source ~/.config/nvim/configs/vimspector-config.vim
 
 lua <<EOF
@@ -120,11 +119,12 @@ require("telescope-config")
 require("dap-config")
 require("devicons-config")
 require("lsp-config")
-require("golang-config")
 require("rest-nvim").setup({})
+require("go").setup()
+
 
 EOF
 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+"set foldmethod=expr
+"set foldexpr=nvim_treesitter#foldexpr()
 
