@@ -8,6 +8,8 @@ let g:OmniSharp_selector_ui = 'fzf'    " Use fzf
 let g:OmniSharp_selector_findusages = 'fzf'
 let g:OmniSharp_highlighting = 0
 
+let g:OmniSharp_diagnostic_showid = 1
+
 " Enable snippet completion, using the ultisnips plugin
 let g:OmniSharp_want_snippet=1
 

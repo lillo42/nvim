@@ -43,4 +43,12 @@ require("lspconfig")["gopls"].setup{
    flags = lsp_flags,
 }
 
+require("lspconfig")["omnisharp"].setup{
+   on_attach = on_attach,
+   flags = lsp_flags,
+   handlers = {
+     ["textDocument/definition"] = require("omnisharp_extended").handler,
+   },
+   cmd = { "/home/rlillo/.cache/omnisharp-vim/omnisharp-roslyn/OmniSharp" },
+}
 

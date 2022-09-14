@@ -39,6 +39,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'LinArcX/telescope-env.nvim'
@@ -50,14 +51,14 @@ Plug 'dense-analysis/ale'
 Plug 'nickspoons/vim-sharpenup'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'github/copilot.vim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'Hoffs/omnisharp-extended-lsp.nvim'
 
 " Debugger 
 Plug 'puremourning/vimspector'
@@ -105,12 +106,13 @@ endif
 
 " Configs
 source ~/.config/nvim/configs/nerdtree-config.vim
-source ~/.config/nvim/configs/fzf-config.vim
+source ~/.config/nvim/configs/telescope-config.vim
 source ~/.config/nvim/configs/ale-config.vim
 source ~/.config/nvim/configs/omnisharp-config.vim
 source ~/.config/nvim/configs/golang-config.vim
 source ~/.config/nvim/configs/ultisnips-config.vim
 source ~/.config/nvim/configs/vimspector-config.vim
+source ~/.config/nvim/configs/deoplete-config.vim
 
 lua <<EOF
 
@@ -122,9 +124,7 @@ require("lsp-config")
 require("rest-nvim").setup({})
 require("go").setup()
 
-
 EOF
 
-"set foldmethod=expr
-"set foldexpr=nvim_treesitter#foldexpr()
-
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
