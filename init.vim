@@ -113,6 +113,8 @@ source ~/.config/nvim/configs/golang-config.vim
 source ~/.config/nvim/configs/ultisnips-config.vim
 source ~/.config/nvim/configs/vimspector-config.vim
 source ~/.config/nvim/configs/deoplete-config.vim
+source ~/.config/nvim/configs/window-config.vim
+" source ~/.config/nvim/configs/wsl-config.vim
 
 lua <<EOF
 
