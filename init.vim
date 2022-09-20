@@ -1,6 +1,7 @@
 set rnu
 set number
 set encoding=utf-8
+set foldmethod=syntax
 
 call plug#begin('~/.config/nvim/plugged')
 " The default plugin directory will be as follows:
@@ -126,6 +127,3 @@ require("rest-nvim").setup({})
 require("go").setup()
 
 EOF
-
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
