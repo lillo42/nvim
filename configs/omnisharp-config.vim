@@ -2,11 +2,15 @@
 " https://github.com/OmniSharp/omnisharp-vim
 
 " Use the stdio version of OmniSharp-roslyn - this is the default
+autocmd BufNewFile,BufRead *.cs setlocal expandtab tabstop=4 shiftwidth=4
+
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_server_use_net6 = 1
 let g:OmniSharp_selector_ui = 'fzf'    " Use fzf
 let g:OmniSharp_selector_findusages = 'fzf'
 let g:OmniSharp_highlighting = 0
+
+let g:OmniSharp_diagnostic_showid = 1
 
 " Enable snippet completion, using the ultisnips plugin
 let g:OmniSharp_want_snippet=1

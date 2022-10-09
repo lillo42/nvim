@@ -13,7 +13,12 @@ require("telescope").setup {
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
-    }
+    },
+    --["ui-select"] = {
+    -- require("telescope.themes").get_dropdown {
+    --  even more opts
+    -- }
+    --}
   },
 }
 
@@ -26,5 +31,14 @@ require("telescope").load_extension("fzf")
 -- you need to call load_extension, somewhere after setup function:
 require("telescope").load_extension("file_browser")
 
+-- To get ui-select loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require("telescope").load_extension("ui-select")
+
+require("telescope").load_extension("dap")
 
 require("telescope").load_extension("env")
+
+require("telescope").load_extension("git_worktree")
+
+require("telescope").load_extension("harpoon")

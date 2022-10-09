@@ -1,6 +1,8 @@
 set rnu
 set number
 set encoding=utf-8
+set foldmethod=syntax
+set nocompatible
 
 call plug#begin('~/.config/nvim/plugged')
 " The default plugin directory will be as follows:
@@ -28,6 +30,7 @@ Plug 'gruvbox-community/gruvbox'
 
 " .editorconfig
 Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-commentary'
 
 " File System
 Plug 'preservim/nerdtree'
@@ -35,12 +38,19 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Comment
+Plug 'tpope/vim-commentary'
+
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-ui-select.nvim'
+Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'LinArcX/telescope-env.nvim'
+Plug 'ThePrimeagen/git-worktree.nvim'
+Plug 'ThePrimeagen/harpoon'
 
 " Code actions, highlight & find symbols
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -49,18 +59,25 @@ Plug 'dense-analysis/ale'
 Plug 'nickspoons/vim-sharpenup'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'Shougo/deoplete.nvim'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'github/copilot.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'Hoffs/omnisharp-extended-lsp.nvim'
 
 " Debugger 
 Plug 'puremourning/vimspector'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 " Database
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'kristijanhusak/vim-dadbod-completion'
 
 " HTTP 
 Plug 'nvim-lua/plenary.nvim'
@@ -68,7 +85,10 @@ Plug 'rest-nvim/rest.nvim'
 
 " Languages
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'fatih/vim-go'
+
+" Go
+Plug 'ray-x/go.nvim'
+Plug 'leoluz/nvim-dap-go'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
@@ -97,20 +117,26 @@ endif
 
 " Configs
 source ~/.config/nvim/configs/nerdtree-config.vim
-source ~/.config/nvim/configs/fzf-config.vim
+source ~/.config/nvim/configs/telescope-config.vim
 source ~/.config/nvim/configs/ale-config.vim
 source ~/.config/nvim/configs/omnisharp-config.vim
 source ~/.config/nvim/configs/golang-config.vim
+source ~/.config/nvim/configs/json-config.vim
 source ~/.config/nvim/configs/ultisnips-config.vim
-source ~/.config/nvim/configs/deoplete-config.vim
-source ~/.config/nvim/configs/vimspector-config.vim
+source ~/.config/nvim/configs/debug-config.vim
+source ~/.config/nvim/configs/coc-config.vim
+source ~/.config/nvim/configs/window-config.vim
+source ~/.config/nvim/configs/rest-config.vim
 
 lua <<EOF
 
 require("treesitter-config")
 require("telescope-config")
+require("dap-config")
 require("devicons-config")
-require("rest-nvim").setup({})
+require("lsp-config")
+require("git-worktree").setup({})
+require("rest-nvim").setup({ result_split_in_place=true })
+require("go").setup()
 
 EOF
-
