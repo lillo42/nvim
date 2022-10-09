@@ -13,5 +13,11 @@ let g:ale_completion_enable = 0
 let g:ale_linters = { 
 \ 'cs': ['omniSharp'],
 \ 'go': [ 'gofmt', 'goimports', 'gopls'],
+\ 'python': ['flake8', 'pylint', 'black'],
+\ }
+
+let g:ale_fixers = {
+\ 'python': ['yapf'],
+\ 'cs': ['dotnet-format'],
 \ }
 

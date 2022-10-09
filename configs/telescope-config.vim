@@ -15,3 +15,6 @@ nnoremap <Leader>lc :Telescope lsp_incoming_calls<CR>
 nnoremap <Leader>lo :Telescope lsp_outgoing_calls<CR>
 nnoremap <Leader>lf :Telescope lsp_dynamic_workspace_symbols<CR>
 nnoremap <Leader>la :lua vim.lsp.buf.code_action({})<CR>
+
+nnoremap <Leader>fdb :Telescope dap list_breakpoints<CR>
+nnoremap <Leader>fdb :Telescope dap variables<CR>

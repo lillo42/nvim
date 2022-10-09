@@ -28,9 +28,14 @@ Plug 'rbong/vim-flog'
 Plug 'sainnhe/gruvbox-material'
 Plug 'gruvbox-community/gruvbox'
 
+" Comment
+Plug 'tpope/vim-commentary'
+
+" .env
+Plug 'tpope/vim-dotenv'
+
 " .editorconfig
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-commentary'
 
 " File System
 Plug 'preservim/nerdtree'
@@ -38,15 +43,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Comment
-Plug 'tpope/vim-commentary'
-
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'LinArcX/telescope-env.nvim'
 Plug 'ThePrimeagen/git-worktree.nvim'
@@ -84,11 +87,18 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'rest-nvim/rest.nvim'
 
 " Languages
+" C#
 Plug 'OmniSharp/omnisharp-vim'
 
 " Go
 Plug 'ray-x/go.nvim'
 Plug 'leoluz/nvim-dap-go'
+
+" Python
+Plug 'vim-scripts/indentpython.vim'
+Plug 'plytophogy/vim-virtualenv'
+Plug 'PieterjanMontens/vim-pipenv'
+Plug 'mfussenegger/nvim-dap-python'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
@@ -127,6 +137,9 @@ source ~/.config/nvim/configs/debug-config.vim
 source ~/.config/nvim/configs/coc-config.vim
 source ~/.config/nvim/configs/window-config.vim
 source ~/.config/nvim/configs/rest-config.vim
+source ~/.config/nvim/configs/vim-config.vim
+source ~/.config/nvim/configs/lua-config.vim
+source ~/.config/nvim/configs/python-config.vim
 
 lua <<EOF
 
@@ -137,6 +150,9 @@ require("devicons-config")
 require("lsp-config")
 require("git-worktree").setup({})
 require("rest-nvim").setup({ result_split_in_place=true })
+require('nvim-projectconfig').setup({
+  project_dir = "~/.config/nvim/projects",
+})
 require("go").setup()
 
 EOF

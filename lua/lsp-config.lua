@@ -44,11 +44,23 @@ require("lspconfig")["gopls"].setup{
 }
 
 require("lspconfig")["omnisharp"].setup{
-   on_attach = on_attach,
-   flags = lsp_flags,
-   handlers = {
-     ["textDocument/definition"] = require("omnisharp_extended").handler,
-   },
-   cmd = { "/home/rlillo/.cache/omnisharp-vim/omnisharp-roslyn/OmniSharp" },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  handlers = {
+    ["textDocument/definition"] = require("omnisharp_extended").handler,
+  },
+  cmd = { "/home/rlillo/.cache/omnisharp-vim/omnisharp-roslyn/OmniSharp" },
 }
+
+require("lspconfig")["jedi_language_server"].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+require("lspconfig")["tsserver"].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+  cmd = { "/home/rlillo/.nvm/versions/node/v16.17.0/bin/node", "/home/rlillo/.nvm/versions/node/v16.17.0/bin/typescript-language-server", "--stdio" }
+}
+
 

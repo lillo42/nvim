@@ -3,6 +3,7 @@
 
 " Use the stdio version of OmniSharp-roslyn - this is the default
 autocmd BufNewFile,BufRead *.cs setlocal expandtab tabstop=4 shiftwidth=4
+autocmd BufWritePre *.cs :OmniSharpCodeFormat
 
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_server_use_net6 = 1
