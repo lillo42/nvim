@@ -58,8 +58,8 @@ return {
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
 
           -- Regular tab complete
-          ["<Tab>"] = cmp_action.tab_complete(),
-          ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
+          -- ["<Tab>"] = cmp_action.tab_complete(),
+          -- ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
         })
       })
     end
