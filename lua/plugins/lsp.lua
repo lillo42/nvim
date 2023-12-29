@@ -5,7 +5,6 @@ return {
     lazy = true,
     config = false,
     init = function()
-      -- Disable automatic setup, we are doing it manually
       vim.g.lsp_zero_extend_cmp = 0
       vim.g.lsp_zero_extend_lspconfig = 0
     end,
@@ -21,7 +20,12 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      { "L3MON4D3/LuaSnip" },
+      {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*",
+        build = "make install_jsregexp"
+      },
     },
     config = function()
       -- Here is where you configure the autocompletion settings.
@@ -33,13 +37,29 @@ return {
       local cmp_action = lsp_zero.cmp_action()
 
       cmp.setup({
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "luasnip"  },
+        },
         formatting = lsp_zero.cmp_format(),
         mapping = cmp.mapping.preset.insert({
+          -- `Enter` key to confirm completion
+          ["<CR>"] = cmp.mapping.confirm({select = false}),
+
+          -- Ctrl+Space to trigger completion menu
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-d>"] = cmp.mapping.scroll_docs(4),
+
+          -- Navigate between snippet placeholder
           ["<C-f>"] = cmp_action.luasnip_jump_forward(),
           ["<C-b>"] = cmp_action.luasnip_jump_backward(),
+
+          -- Scroll up and down in the completion documentation
+          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-d>"] = cmp.mapping.scroll_docs(4),
+
+          -- Regular tab complete
+          ["<Tab>"] = cmp_action.tab_complete(),
+          ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
         })
       })
     end
@@ -54,6 +74,16 @@ return {
       { "hrsh7th/cmp-nvim-lsp"},
       { "williamboman/mason-lspconfig.nvim" },
     },
+    opts = {
+      servers = {
+        eslint = {
+          settings = {
+            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+            workingDirectory = { mode = "auto" },
+          }
+        }
+      }
+    },
     config = function()
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require("lsp-zero")
@@ -65,15 +95,16 @@ return {
         lsp_zero.default_keymaps({buffer = bufnr})
       end)
 
+      require("mason").setup({})
       require("mason-lspconfig").setup({
-        ensure_installed = {},
+        ensure_installed = {
+          "volar",
+          "omnisharp",
+          "gopls"
+        },
+        automatic_installation = true,
         handlers = {
           lsp_zero.default_setup,
-          lua_ls = function()
-            -- (Optional) Configure lua language server for neovim
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require("lspconfig").lua_ls.setup(lua_opts)
-          end,
         }
       })
     end

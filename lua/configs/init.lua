@@ -1,4 +1,5 @@
 require("configs.set")
 require("configs.plugin")
+require("configs.autocmds")
 require("configs.options")
 require("configs.keymaps")

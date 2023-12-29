@@ -1,6 +1,14 @@
 return {
+  -- {
+  --   "willothy/wezterm.nvim",
+  --   config = true,
+  --   enable = false
+  -- }
   {
-    "willothy/wezterm.nvim",
-    config = true
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function ()
+     require("toggleterm").setup()
+    end
   }
 }

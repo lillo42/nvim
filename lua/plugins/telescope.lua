@@ -13,7 +13,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
-  { 
+ { 
     "nvim-telescope/telescope-dap.nvim",
     dependencies = { "mfussenegger/nvim-dap", "nvim-telescope/telescope.nvim" },
     config = function() 
