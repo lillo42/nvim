@@ -1,9 +1,10 @@
 return {
-  -- {
-  --   "willothy/wezterm.nvim",
-  --   config = true,
-  --   enable = false
-  -- }
+  {
+    "willothy/wezterm.nvim",
+    config = true,
+    enable = false
+  },
+
   {
     "akinsho/toggleterm.nvim",
     version = "*",

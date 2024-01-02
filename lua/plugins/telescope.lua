@@ -1,9 +1,9 @@
 return {
   {
-    "nvim-telescope/telescope.nvim", 
+    "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function() 
+    config = function()
       require("telescope").setup()
     end,
   },
@@ -13,24 +13,25 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
- { 
+  {
     "nvim-telescope/telescope-dap.nvim",
     dependencies = { "mfussenegger/nvim-dap", "nvim-telescope/telescope.nvim" },
-    config = function() 
+    config = function()
       require("telescope").load_extension("dap")
     end,
   },
 
-  { 
+  {
     "nvim-telescope/telescope-ui-select.nvim",
-    config = function() 
-      require("telescope").load_extension("ui-select")
+    config = function()
+      -- require("telescope").load_extension("ui-select")
     end,
   },
 
-  { 
+  {
     "ThePrimeagen/git-worktree.nvim",
-    config = function() 
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
       require("telescope").load_extension("git_worktree")
     end,
   },
@@ -39,7 +40,7 @@ return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function() 
+    config = function()
       local harpoon = require('harpoon')
       harpoon:setup({})
 
@@ -61,10 +62,19 @@ return {
         }):find()
       end
 
-      vim.keymap.set("n", "<C-e>", function() 
-          toggle_telescope(harpoon:list()) 
-      end, 
-      { desc = "Open harpoon window" })
+      vim.keymap.set("n", "<C-e>", function()
+          toggle_telescope(harpoon:list())
+        end,
+        { desc = "Open harpoon window" })
     end,
   },
-} 
+
+  {
+    "gbprod/yanky.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("yanky").setup()
+      require("telescope").load_extension("yank_history")
+    end
+  }
+}

@@ -29,6 +29,8 @@ return {
          end
        end,
       },
+
+      { "windwp/nvim-ts-autotag" }
     },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -69,6 +71,9 @@ return {
           move = {
             enable = true
           },
+        },
+        autotag = {
+          enable = true
         },
       })
     end,

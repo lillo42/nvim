@@ -26,25 +26,34 @@ return {
         version = "v2.*",
         build = "make install_jsregexp"
       },
+
+      { "windwp/nvim-autopairs" },
     },
     config = function()
       -- Here is where you configure the autocompletion settings.
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_cmp()
 
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
       -- And you can configure cmp even more, if you want to.
       local cmp = require("cmp")
       local cmp_action = lsp_zero.cmp_action()
 
+      cmp.event:on(
+        "confirm_done",
+        cmp_autopairs.on_confirm_done()
+      )
+
       cmp.setup({
         sources = {
           { name = "nvim_lsp" },
-          { name = "luasnip"  },
+          { name = "luasnip" },
         },
         formatting = lsp_zero.cmp_format(),
         mapping = cmp.mapping.preset.insert({
           -- `Enter` key to confirm completion
-          ["<CR>"] = cmp.mapping.confirm({select = false}),
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
           -- Ctrl+Space to trigger completion menu
           ["<C-Space>"] = cmp.mapping.complete(),
@@ -71,7 +80,7 @@ return {
     cmd = { "LspInfo", "LspInstall", "LspStart" },
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp"},
+      { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason-lspconfig.nvim" },
     },
     opts = {
@@ -92,7 +101,7 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-        lsp_zero.default_keymaps({buffer = bufnr})
+        lsp_zero.default_keymaps({ buffer = bufnr })
       end)
 
       require("mason").setup({})
@@ -108,5 +117,11 @@ return {
         }
       })
     end
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
   }
 }

@@ -1,6 +1,6 @@
 -- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
 
 -- setup default <Leader> key
 vim.g.mapleader = " "
@@ -23,7 +23,7 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true 
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
