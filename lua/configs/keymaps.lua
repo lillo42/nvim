@@ -59,4 +59,17 @@ vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
 -- Terminal
 local terminal = require("toggleterm")
-vim.keymap.set("n", "<leader>tt", terminal.toggle,{})
+vim.keymap.set("n", "<leader>tt", terminal.toggle, {})
+
+
+-- Git
+vim.keymap.set("n", "<leader>gs", "<cmd>Git status<cr>", {})
+vim.keymap.set("n", "<leader>ga", "<cmd>Git add .<cr>", {})
+vim.keymap.set("n", "<leader>gc", function ()
+  local message = vim.fn.input("Commit message: ")
+  if message == "" then
+    return
+  end
+
+  vim.cmd("Git commit -m \"" .. message .. "\"")
+end, {})

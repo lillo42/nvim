@@ -17,5 +17,10 @@ config.force_reverse_video_cursor = true
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
+-- Set powershell on Windows
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  config.default_prog = { "pwsh.exe", "-NoLogo" }
+end
+
 return config
 
