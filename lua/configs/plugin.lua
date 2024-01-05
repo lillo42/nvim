@@ -15,7 +15,15 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-  spec = { import = "plugins" },
+  spec = {
+    { import = "plugins" },
+    { import = "plugins.extras.formatting" },
+    { import = "plugins.extras.linting" },
+    { import = "plugins.extras.lang" },
+    { import = "plugins.extras.lsp" },
+    { import = "plugins.extras.dap" },
+    { import = "plugins.extras.tests" },
+  },
   defaults = {
     lazy = false,
 

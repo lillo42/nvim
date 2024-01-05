@@ -1,7 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
-
 -- This table will hold the configuration.
 local config = {}
 
@@ -11,7 +10,7 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.font = wezterm.font "JetBrains Mono"
+config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Lab Fox"
 config.force_reverse_video_cursor = true
 config.use_fancy_tab_bar = true
@@ -23,4 +22,3 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 return config
-

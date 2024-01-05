@@ -1,6 +1,6 @@
 -- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- setup default <Leader> key
 vim.g.mapleader = " "
@@ -23,7 +23,7 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = true 
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -43,8 +43,9 @@ vim.opt.list = true
 vim.opt.mouse = "a" -- Enable mouse mode
 vim.opt.showmode = false -- Dont show mode since we have a statusline
 
+vim.g.autoformat = true -- Enable LazyVim auto format
 
--- Each entry can be:
+-- Each entry can be
 -- * the name of a detector function like `lsp` or `cwd`
 -- * a pattern or array of patterns like `.git` or `lua`.
 -- * a function with signature `function(buf) -> string|string[]`
