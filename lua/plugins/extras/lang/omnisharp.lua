@@ -1,7 +1,7 @@
 return {
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
-    lazy = true
+    lazy = true,
   },
 
   {
@@ -10,7 +10,7 @@ return {
       if type(opts.ensure_installed) == "table" then
         vim.list_extend(opts.ensure_installed, { "c_sharp" })
       end
-    end
+    end,
   },
 
   {
@@ -20,7 +20,7 @@ return {
       local nls = require("null-ls")
       opts.sources = opts.sources or {}
       table.insert(opts.sources, nls.builtins.formatting.csharpier)
-    end
+    end,
   },
 
   {
@@ -36,7 +36,7 @@ return {
           args = { "--write-stdout" },
         },
       },
-    }
+    },
   },
 
   {
@@ -71,6 +71,6 @@ return {
           enable_import_completion = true,
         },
       },
-    }
-  }
+    },
+  },
 }

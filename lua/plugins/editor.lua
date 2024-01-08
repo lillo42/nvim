@@ -57,6 +57,15 @@ return {
       { "nvim-telescope/telescope-ui-select.nvim" },
       { "nvim-telescope/telescope-dap.nvim" },
       { "gbprod/yanky.nvim", opts = {} },
+      {
+        "ahmedkhalf/project.nvim",
+        opts = {
+          manual_mode = true,
+        },
+        config = function(_, opts)
+          require("project_nvim").setup(opts)
+        end,
+      },
     },
     opts = function()
       local actions = require("telescope.actions")
@@ -123,6 +132,7 @@ return {
       telescope.load_extension("ui-select")
       telescope.load_extension("yank_history")
       telescope.load_extension("dap")
+      telescope.load_extension("projects")
     end,
   },
 

@@ -23,6 +23,7 @@ require("lazy").setup({
     { import = "plugins.extras.lsp" },
     { import = "plugins.extras.dap" },
     { import = "plugins.extras.tests" },
+    { import = "plugins.extras.editor" },
   },
   defaults = {
     lazy = false,

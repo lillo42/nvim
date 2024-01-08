@@ -39,7 +39,6 @@ vim.opt.colorcolumn = "100"
 vim.opt.listchars:append({ space = "·" })
 vim.opt.list = true
 
-
 vim.opt.mouse = "a" -- Enable mouse mode
 vim.opt.showmode = false -- Dont show mode since we have a statusline
 
@@ -50,3 +49,6 @@ vim.g.autoformat = true -- Enable LazyVim auto format
 -- * a pattern or array of patterns like `.git` or `lua`.
 -- * a function with signature `function(buf) -> string|string[]`
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+
+-- vim.lsp.set_log_level("TRACE")
+
