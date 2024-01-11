@@ -33,7 +33,7 @@ return {
       formatters = {
         csharpier = {
           command = "dotnet-csharpier",
-          args = { "--write-stdout" },
+          args = { "--write-stdout", "--no-cache", "$FILENAME" },
         },
       },
     },

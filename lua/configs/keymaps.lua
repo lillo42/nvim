@@ -39,13 +39,18 @@ vim.keymap.set("n", "<leader>ec", function()
   api.tree.close()
 end, { desc = "Close File System" })
 
+vim.keymap.set("n", "<leader>el", function()
+  local api = require("nvim-tree.api")
+  api.tree.reload()
+  api.tree.find_file()
+end, { desc = "Locate File" })
+
 -- UndoTree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle Undo system" })
 
 -- Telescope
 local telescope = require("telescope.builtin")
 
--- TODO: When find by file use the "telescope function" in utils
 vim.keymap.set("n", "<leader>ff", Util.telescope.telescope("files", { desc = "Find file" }))
 vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Find buffer" })
 vim.keymap.set("n", "<leader>fl", telescope.live_grep, { desc = "Find inside file" })
@@ -126,3 +131,7 @@ vim.keymap.set("n", "<leader>gc", function()
 
   vim.cmd('Git commit -m "' .. message .. '"')
 end, { desc = "Git commit" })
+
+-- TODO create shortcut to increase buffer size
+-- vim.keymap.set("n", "<m-a>", "<c-w><")
+-- vim.keymap.set("n", "<m-h>", "<c-w>>")

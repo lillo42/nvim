@@ -19,6 +19,12 @@ config.hide_tab_bar_if_only_one_tab = true
 -- Set powershell on Windows
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.default_prog = { "pwsh.exe", "-NoLogo" }
+  config.window_padding = {
+    left = 1,
+    right = 1,
+    top = 0,
+    bottom = 0,
+  }
 end
 
 return config

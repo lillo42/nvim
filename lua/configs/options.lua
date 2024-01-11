@@ -6,4 +6,3 @@ vim.opt.foldmethod = "expr"
 vim.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- vim.lsp.set_log_level("TRACE")
-
