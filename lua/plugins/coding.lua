@@ -312,6 +312,7 @@ return {
             "yaml",
             "typescript",
             "javascript",
+            "vue",
             "html",
             "css",
             "scss",
