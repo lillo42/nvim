@@ -26,6 +26,7 @@ require("lazy").setup({
     { import = "plugins.extras.editor" },
     { import = "plugins.extras.coding" },
     { import = "plugins.extras.diagram" },
+    { import = "plugins.extras.database" },
   },
   defaults = {
     lazy = false,

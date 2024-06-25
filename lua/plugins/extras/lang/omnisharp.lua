@@ -1,3 +1,6 @@
+return {}
+
+--[[
 return {
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
@@ -80,8 +83,8 @@ return {
             vim.list_extend(new_config.cmd, { "--encoding", "utf-8" })
             table.insert(new_config.cmd, "--languageserver")
 
-            table.insert(new_config.cmd, "--debug")
-            table.insert(new_config.cmd, "--verbose")
+            -- table.insert(new_config.cmd, "--debug")
+            -- table.insert(new_config.cmd, "--verbose")
 
             if new_config.enable_editorconfig_support then
               table.insert(new_config.cmd, "FormattingOptions:EnableEditorConfigSupport=true")
@@ -136,3 +139,5 @@ return {
     },
   },
 }
+
+--]]

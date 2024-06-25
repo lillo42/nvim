@@ -1,3 +1,6 @@
+return {}
+
+--[[
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -97,3 +100,4 @@ return {
     -- keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
 }
+--]]
