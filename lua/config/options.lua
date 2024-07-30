@@ -4,3 +4,6 @@
 
 -- Use telescope
 vim.g.lazyvim_picker = "telescope"
+
+vim.opt.listchars:append({ space = "·" })
+vim.opt.list = true
